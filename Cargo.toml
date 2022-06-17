@@ -1,0 +1,17 @@
+[package]
+name = "pyza"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "pyza"
+path = "src/main.rs"
+
+[lib]
+name = "src/lib.rs"
+
+[dependencies]
+anyhow = "1.0.57"
+clap = { version = "3.2.5", features = ["derive"] }
+dialoguer = "0.10.1"
+scraper = "0.13.0"
