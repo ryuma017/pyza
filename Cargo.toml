@@ -1,6 +1,7 @@
 [package]
 name = "pyza"
 version = "0.1.0"
+author = ["ryuma017 <tgcrym01@gmail.com>"]
 edition = "2021"
 
 [lib]

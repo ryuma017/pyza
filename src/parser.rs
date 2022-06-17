@@ -1,5 +1,24 @@
-use std::fs;
-use std::path::Path;
-use std::process::Command;
+use clap::{Parser, Subcommand};
 
-use clap::{Parser, SubCommand};
+use crate::actions::{start, StartOpt};
+
+#[derive(clap::Parser)]
+#[clap(author, version, about, long_about = None)]
+#[clap(propagate_version = true)]
+struct Pyza {
+    #[clap(subcommand)]
+    action: Action,
+}
+
+#[derive(Subcommand)]
+enum Action {
+    #[clap(name = "start")]
+    Start(StartOpt),
+}
+
+pub fn run() -> Result<(), anyhow::Error> {
+    let pyza = Pyza::parse();
+    match pyza.action {
+        Action::Start(opt) => start(opt),
+    }
+}
